@@ -21,12 +21,9 @@ const FoodCardWrapper = styled.div`
     background-color: #f9f9f9;
 `;
 
-export default function FoodCard({ description, gramWeight, foodNutrients = [] }) {
+export default function FoodCard({foodNutrients = [] }) {
     return (
         <FoodCardWrapper className="food-card">
-            <h2>{description}</h2>
-            <p>Gram Weight: {gramWeight || "N/A"} g</p>
-            <h4>Nutritional Information (per 100g)</h4>
             <ul>
                 {foodNutrients.length > 0 ? (
                     foodNutrients.map((nutrient, index) => (
