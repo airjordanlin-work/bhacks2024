@@ -20,7 +20,9 @@
     "npm": "^10.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.1.13"
+    "react-router-dom": "^6.27.0",
+    "styled-components": "^6.1.13",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
