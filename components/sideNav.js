@@ -154,9 +154,9 @@ export default function SideNav() {
                                 <MenuItem {...itemProps}>
                                     <Link href="/home" passHref>Productivity Tracker</Link>
                                 </MenuItem>
-                                {/*<MenuItem {...itemProps}>*/}
-                                {/*    <Link href="/FitnessData" passHref>Fitness Data</Link>*/}
-                                {/*</MenuItem>*/}
+                                <MenuItem {...itemProps}>
+                                    <Link href="/journal" passHref>Journal Page</Link>
+                                </MenuItem>
                                 {/*<MenuItem {...itemProps}>*/}
                                 {/*    <Link href="/NutritionCalculator" passHref>Nutrition Calculator</Link>*/}
                                 {/*</MenuItem>*/}
