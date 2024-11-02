@@ -1,26 +1,23 @@
 "use client"
 
-import Link from "next/link";
 import styled from "styled-components";
+import {Typography} from "@mui/material";
 
-const StyledLink = styled(Link)`
+const StyledHeader = styled.header`
     margin-right:10%;
-`
+    text-align:center;
+    color: green;
+    width: 50%;
+    
+`;
+
 export default function Header(){
 
     return(
-        <header>
-            <h2>Peace of Mind</h2>
-            <nav>
+        <StyledHeader>
 
-                <StyledLink href="/">
-                    Peace of Mind
-                </StyledLink>
+                    <Typography variant="h3" sx={{ color: "green" }}>Peace of Mind</Typography>
 
-                <StyledLink href="/page1">
-                    Page 1
-                </StyledLink>
-            </nav>
-        </header>
+        </StyledHeader>
     );
 }
