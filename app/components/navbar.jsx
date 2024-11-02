@@ -31,6 +31,7 @@ const NavLinks = styled.div`
 
 const NavLink = styled.a`
   text-decoration: none;
+    justify-content: center;
   color: white;
   font-size: 14px;
   cursor: pointer;
