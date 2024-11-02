@@ -21,7 +21,7 @@ const FoodCardWrapper = styled.div`
     background-color: #f9f9f9;
 `;
 
-export default function FoodCard({foodNutrients = [] }) {
+export default function Page({foodNutrients = [] }) {
     return (
         <FoodCardWrapper className="food-card">
             <ul>

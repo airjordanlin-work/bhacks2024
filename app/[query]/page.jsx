@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-import FoodCard from "../components/FoodCard";
+import FoodCard from "../components/Page";
 import styled from "styled-components";
 
 const FoodContentWrapper = styled.main`
