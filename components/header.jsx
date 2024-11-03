@@ -9,20 +9,19 @@ const StyledHeader = styled.header`
   position: relative;
   margin-right: 10%;
   text-align: center;
-  color: green;
+  color: Orange;
   width: 50%;
 `;
 
 // Points bubble styling
 const PointsBubble = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+
   background-color: white;
   color: green;
   border-radius: 50%;
   width: 40px;
-  height: 40px;
+    height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
