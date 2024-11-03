@@ -158,17 +158,7 @@ export default function SideNav() {
                         onLeaveMenu={createHandleLeaveMenu(0)}
                         menu={
                             <Menu onClose={() => setMenuIndex(null)}>
-                                <MenuItem
-                                    {...itemProps}
-                                    component={Link}
-                                    href="/foodcard"
-                                    sx={{
-                                        '&:hover': { bgcolor: 'primary.light' }, // Subtle hover effect
-                                        fontWeight: 'bold',
-                                    }}
-                                >
-                                    Food Card
-                                </MenuItem>
+
                                 <MenuItem
                                     {...itemProps}
                                     component={Link}
@@ -219,7 +209,7 @@ export default function SideNav() {
                                 <MenuItem
                                     {...itemProps}
                                     component={Link}
-                                    href="/meditate"
+                                    href="/meditation"
                                     sx={{
                                         '&:hover': { bgcolor: 'primary.light' },
                                         fontWeight: 'bold',

@@ -1,10 +1,8 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { Container, Typography, Button, Box, Paper, TextField } from "@mui/material";
 import { PlayArrow, Pause, Replay } from "@mui/icons-material";
 import styled from "styled-components";
-
 const TimerContainer = styled(Paper)`
     display: flex;
     flex-direction: column;
@@ -17,13 +15,11 @@ const TimerContainer = styled(Paper)`
     max-width: 400px;
     text-align: center;
 `;
-
 const ButtonContainer = styled(Box)`
     display: flex;
     gap: 10px;
     margin-top: 20px;
 `;
-
 const StyledTextField = styled(TextField)`
     && {
         margin-bottom: 20px;
@@ -31,10 +27,8 @@ const StyledTextField = styled(TextField)`
         background-color: #444;
         border-radius: 8px;
     }
-
     & .MuiOutlinedInput-root {
         color: white;
-
         & fieldset {
             border-color: #555;
         }
@@ -46,12 +40,10 @@ const StyledTextField = styled(TextField)`
         }
     }
 `;
-
 export default function MeditationPage() {
     const [timeLeft, setTimeLeft] = useState(5 * 60); // Default to 5 minutes
     const [isRunning, setIsRunning] = useState(false);
     const [inputMinutes, setInputMinutes] = useState(5); // Default input
-
     useEffect(() => {
         let timer;
         if (isRunning && timeLeft > 0) {
@@ -61,7 +53,6 @@ export default function MeditationPage() {
         }
         return () => clearInterval(timer);
     }, [isRunning, timeLeft]);
-
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
@@ -69,21 +60,17 @@ export default function MeditationPage() {
             .toString()
             .padStart(2, "0")}`;
     };
-
     const handleStartPause = () => setIsRunning(!isRunning);
     const handleReset = () => {
         setTimeLeft(inputMinutes * 60);
         setIsRunning(false);
     };
-
     const handleInputChange = (e) => {
         setInputMinutes(e.target.value);
     };
-
     const handleSetTime = () => {
         setTimeLeft(inputMinutes * 60);
     };
-
     return (
         <>
             <Container
