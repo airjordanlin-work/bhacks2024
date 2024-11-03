@@ -1,11 +1,11 @@
-import CustomStepper from "@/components/stepper";
+import DisplayAllPosts from "@/components/display-all-posts";
+import getAllPosts from "@/lib/getAllPosts";
 
-export default function JournalPage() {
+export default async function Home() {
+    const posts = await getAllPosts();
     return (
-        <>
-            <h1>Journal Page</h1>
-            <h2>Yo</h2>
-
-        </>
+        <div className="flex flex-col items-center bg-blue-200 p-4">
+            <DisplayAllPosts inputPosts={posts} />
+        </div>
     );
 }
