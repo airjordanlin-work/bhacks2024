@@ -20,8 +20,7 @@ const PointsBubble = styled.div`
   background-color: white;
   color: green;
   border-radius: 50%;
-  width: 40px;
-    height: auto;
+  width: 40px;height: auto;
   display: flex;
   align-items: center;
   justify-content: center;

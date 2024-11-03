@@ -35,6 +35,7 @@ const StyledWrapper = styled(Paper)`
     background-color: #1a1a1a;
     border-radius: 10px;
     width: 100%;
+    margin-top: 2%;
 
     @media (max-width: 768px) {
         flex-direction: column;
