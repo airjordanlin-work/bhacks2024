@@ -1,25 +1,18 @@
+// FoodPage.js
 "use client";
 
 import { useParams } from "next/navigation";
 import useSWR from "swr";
 import FoodCard from "../components/FoodCard";
 import styled from "styled-components";
+import { Grid, Typography } from "@mui/material";
 
 const FoodContentWrapper = styled.div`
-    width: 80vw;
-    height: 100vh;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
+    padding: 2rem;
     background-color: aquamarine;
-`;
-
-const FoodName = styled.h1`
-    color: blueviolet;
-`;
-
-const FoodCardsContainer = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    border: gold 5px solid;
 `;
 
 export default function FoodPage() {
@@ -31,28 +24,33 @@ export default function FoodPage() {
         fetch(url).then((res) => res.json())
     );
 
-    if (error) return <div>Failed to load</div>;
-    if (!data) return <div>Loading...</div>;
+    if (error) return <Typography variant="h6" color="error">Failed to load</Typography>;
+    if (!data) return <Typography variant="h6">Loading...</Typography>;
 
     const foods = data?.foods || [];
 
     return (
         <FoodContentWrapper>
-            <FoodName>{food}</FoodName>
-            <FoodCardsContainer>
+            <Typography variant="h4" align="center" color="primary" gutterBottom>
+                {food ? `Nutrition Info for ${food}` : "Nutrition Information"}
+            </Typography>
+            <Grid container spacing={2} justifyContent="center">
                 {foods.length > 0 ? (
                     foods.map((item, i) => (
-                        <FoodCard
-                            key={i}
-                            description={item.description}
-                            gramWeight={item.gramWeight}
-                            foodNutrients={item.foodNutrients}
-                        />
+                        <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                            <FoodCard
+                                description={item.description}
+                                gramWeight={item.gramWeight}
+                                foodNutrients={item.foodNutrients}
+                            />
+                        </Grid>
                     ))
                 ) : (
-                    <p>No data found for &quot;{food}&quot;</p>
+                    <Typography variant="body1" color="textSecondary">
+                        No data found for &quot;{food}&quot;
+                    </Typography>
                 )}
-            </FoodCardsContainer>
+            </Grid>
         </FoodContentWrapper>
     );
 }
