@@ -1,3 +1,4 @@
+// FoodCard/page.jsx
 "use client";
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -5,14 +6,12 @@ import Link from 'next/link';
 import NutritionApp from '/app/components/FoodCard';
 import { Typography, Button, TextField } from "@mui/material";
 
-// Wrapper with original background
 const NutritionAppWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
     min-height: 100vh;
-    /* Retain the original background */
     background-color: inherit;
     color: #e0e0e0;
     text-align: center;
@@ -79,7 +78,10 @@ export default function Food({ initialNutritionData = [] }) {
             <Link href={`/${food}`}>
                 <SpaceButton variant="contained">Get Nutrition Info</SpaceButton>
             </Link>
-            <NutritionApp foodNutrients={nutritionData} />
+            <Link href="/dailylog">
+                <SpaceButton variant="outlined">View Daily Log</SpaceButton>
+            </Link>
+
         </NutritionAppWrapper>
     );
 }
