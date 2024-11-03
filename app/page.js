@@ -12,6 +12,7 @@ import Header from "@/components/Header";
 
 import styled from "styled-components";
 
+import { PointsProvider } from './context/PointsContext';
 
 const StyledDiv = styled.div`
 
@@ -28,30 +29,30 @@ const StyledCenter = styled.div`
 export default function Home() {
   return (
       <>
+          <PointsProvider>
+              <Container sx={{
+                  height: "150vh",
+                  bgcolor: "black",
+                  backgroundRepeat: "no-repeat",
+                  backgroundImage: `url(/spaceGif.gif)`, // Correct path to the GIF
+                  backgroundPosition: "center",
+                  backgroundSize: "cover", // Optional: makes the background cover the entire container
+              }}
+              >
+                  <Header/>
+                  <StyledCenter>
 
-          <Container sx={{
-              height: "150vh",
-              bgcolor: "black",
-              backgroundRepeat: "no-repeat",
-              backgroundImage: `url(/spaceGif.gif)`, // Correct path to the GIF
-              backgroundPosition: "center",
-              backgroundSize: "cover", // Optional: makes the background cover the entire container
-          }}
-          >
-              <Header/>
-              <StyledCenter>
+                      <SideNav/>
+                      <CustomTimeline/>
 
-                  <SideNav/>
-                  <CustomTimeline/>
-
-              </StyledCenter>
-              <StyledDiv>
-                  <CustomStepper/>
-              </StyledDiv>
+                  </StyledCenter>
+                  <StyledDiv>
+                      <CustomStepper/>
+                  </StyledDiv>
 
 
-          </Container>
-
+              </Container>
+          </PointsProvider>
       </>
   );
 }
