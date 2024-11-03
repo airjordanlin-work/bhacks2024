@@ -1,0 +1,34 @@
+{
+  "mockPosts": [
+    {
+      "id": "id1",
+      "title": "A Day in Zero Gravity",
+      "content": "As I float in the serenity of space, I marvel at the beauty of Earth below. The experience of zero gravity is surreal; I can spin and twirl effortlessly. Each day is filled with experiments and research, but the quiet moments when I gaze at the stars are truly magical. I keep a journal to document my thoughts and feelings. Today, I saw a meteor shower outside the observation window, a breathtaking display of nature’s beauty. I feel lucky to be part of this journey, exploring the cosmos and pushing the boundaries of human knowledge.",
+      "date": "August 1, 2019"
+    },
+    {
+      "id": "id2",
+      "title": "Life on the Space Station",
+      "content": "Living aboard the International Space Station (ISS) has its challenges, but the rewards are extraordinary. Each day begins with a breathtaking view of Earth as the sun rises, casting beautiful colors across the horizon. I conduct scientific experiments and collaborate with my fellow astronauts from different countries, fostering unity and teamwork. Cooking is an adventure; food floats around, and I have to be careful while preparing meals. I miss the simple pleasures of home, like feeling the grass under my feet, but every moment spent in space is an opportunity to learn and grow as a scientist and individual.",
+      "date": "August 2, 2019"
+    },
+    {
+      "id": "id3",
+      "title": "Reflections in Space",
+      "content": "Being in space offers a unique perspective on life. As I look out at the infinite expanse of the universe, I reflect on my journey to this point. The training, the sacrifices, and the determination have all led me here. I often think about my family and friends back on Earth, and how their support has been my anchor. Journaling helps me process my experiences and emotions; I write about my dreams, the beauty of the stars, and the challenges of isolation. This experience has taught me resilience and the importance of cherishing every moment, no matter where I am.",
+      "date": "August 3, 2019"
+    },
+    {
+      "id": "id4",
+      "title": "A New Perspective",
+      "content": "From the vantage point of space, I’ve gained a new appreciation for our planet. Watching Earth rotate below me fills me with wonder and humility. I see how fragile and beautiful our home is, with swirling clouds and vast oceans. Every night, I gaze at the stars, contemplating the mysteries of the universe. I’ve started to write daily reflections, capturing my thoughts and feelings about this extraordinary journey. Each entry reminds me of the importance of taking care of our planet and the need for unity in our efforts to explore and protect it for future generations.",
+      "date": "August 4, 2019"
+    },
+    {
+      "id": "id5",
+      "title": "The Silence of Space",
+      "content": "There is a profound silence in space that is both calming and eerie. Away from the noise of Earth, I find solace in the quiet as I conduct my research and experiments. The sensation of weightlessness is liberating; I can move freely and float through the modules of the space station. I spend my evenings looking out at the stars, writing about the vastness that surrounds me. Each star is a reminder of the countless possibilities that exist beyond our planet. This experience is not just about science; it’s a journey of self-discovery and understanding what it means to be human in the universe.",
+      "date": "August 5, 2019"
+    }
+  ]
+}
