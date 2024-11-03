@@ -1,7 +1,7 @@
 // FoodCard.js
 "use client";
 import styled from "styled-components";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, CardActionArea } from "@mui/material";
 
 /**
  * FoodData Type
@@ -32,35 +32,37 @@ const NutrientList = styled.ul`
     list-style-type: none;
 `;
 
-export default function FoodCard({ description, gramWeight, foodNutrients = [] }) {
+export default function FoodCard({ description, gramWeight, foodNutrients = [], onClick }) {
     return (
         <FoodCardWrapper>
-            <CardContent>
-                <Typography variant="h6" gutterBottom>
-                    {description || "Unknown Food"}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    Gram Weight: {gramWeight || "N/A"} g
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                    Nutritional Information (per 100g)
-                </Typography>
-                <NutrientList>
-                    {foodNutrients.length > 0 ? (
-                        foodNutrients.map((nutrient, index) => (
-                            <li key={index}>
-                                <Typography variant="body2">
-                                    {nutrient.nutrientName}: {nutrient.value} {nutrient.unitName}
-                                </Typography>
-                            </li>
-                        ))
-                    ) : (
-                        <Typography variant="body2" color="textSecondary">
-                            No nutritional information available.
-                        </Typography>
-                    )}
-                </NutrientList>
-            </CardContent>
+            <CardActionArea onClick={onClick}>
+                <CardContent>
+                    <Typography variant="h6" gutterBottom>
+                        {description || "Unknown Food"}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Gram Weight: {gramWeight || "N/A"} g
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Nutritional Information (per 100g)
+                    </Typography>
+                    <NutrientList>
+                        {foodNutrients.length > 0 ? (
+                            foodNutrients.map((nutrient, index) => (
+                                <li key={index}>
+                                    <Typography variant="body2">
+                                        {nutrient.nutrientName}: {nutrient.value} {nutrient.unitName}
+                                    </Typography>
+                                </li>
+                            ))
+                        ) : (
+                            <Typography variant="body2" color="textSecondary">
+                                No nutritional information available.
+                            </Typography>
+                        )}
+                    </NutrientList>
+                </CardContent>
+            </CardActionArea>
         </FoodCardWrapper>
     );
 }
