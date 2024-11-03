@@ -2,11 +2,12 @@
 
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-import FoodCard from "../foodcard/page";
+import FoodCard from "../components/FoodCard";
 import styled from "styled-components";
 
-const FoodContentWrapper = styled.main`
+const FoodContentWrapper = styled.div`
     width: 80vw;
+    height: 100vh;
     margin: auto;
     background-color: aquamarine;
 `;
@@ -23,8 +24,9 @@ const FoodCardsContainer = styled.div`
 
 export default function FoodPage() {
     const params = useParams();
+    const food = params.food; // The food parameter from the URL
 
-    // Fetch data from the USDA API route, using the "name" parameter
+    // Fetch data from the USDA API using the food name
     const { data, error } = useSWR(`/api/usda-search?query=${params.query}`, (url) =>
         fetch(url).then((res) => res.json())
     );
@@ -32,21 +34,24 @@ export default function FoodPage() {
     if (error) return <div>Failed to load</div>;
     if (!data) return <div>Loading...</div>;
 
-    // The "foods" array from the USDA response
     const foods = data?.foods || [];
 
     return (
         <FoodContentWrapper>
-            <FoodName>{params.name}</FoodName>
+            <FoodName>{food}</FoodName>
             <FoodCardsContainer>
-                {foods.map((food, i) => (
-                    <FoodCard
-                        key={i}
-                        description={food.description}
-                        gramWeight={food.gramWeight}
-                        foodNutrients={food.foodNutrients}
-                    />
-                ))}
+                {foods.length > 0 ? (
+                    foods.map((item, i) => (
+                        <FoodCard
+                            key={i}
+                            description={item.description}
+                            gramWeight={item.gramWeight}
+                            foodNutrients={item.foodNutrients}
+                        />
+                    ))
+                ) : (
+                    <p>No data found for &quot;{food}&quot;</p>
+                )}
             </FoodCardsContainer>
         </FoodContentWrapper>
     );

@@ -4,11 +4,11 @@ import Image from "next/image";
 import {Container} from "@mui/material"
 import {ThemeProvider} from "@mui/material";
 
-import CustomStepper from "@/components/stepper";
-import SideNav from "@/components/sideNav";
-import CustomTimeline from "@/components/timeline";
+import CustomStepper from "@/app/components/stepper";
+import SideNav from "@/app/components/sideNav";
+import CustomTimeline from "@/app/components/timeline";
 
-import Header from "@/components/Header";
+import Header from "@/app/components/Header";
 
 import styled from "styled-components";
 

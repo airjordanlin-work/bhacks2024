@@ -1,4 +1,4 @@
-import CustomStepper from "@/components/stepper";
+import CustomStepper from "@/app/components/stepper";
 
 export default function Main() {
     return (

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import NutritionApp from '/components/FoodCard';
+import NutritionApp from '/app/components/FoodCard';
 
 const NutritionAppWrapper = styled.div`
     display: flex;

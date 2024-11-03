@@ -4,7 +4,8 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get("query");
     console.log("Query parameter:", query);
-    const USDA_API_KEY = process.env.USDA_API_KEY;
+    const USDA_API_KEY = process.env.USDA_API_KEY; // eslint-disable-line no-process-env
+
 
     if (!query) {
         return NextResponse.json({ error: "No query provided" }, { status: 400 });

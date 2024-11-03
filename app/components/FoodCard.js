@@ -18,10 +18,10 @@ const FoodCardWrapper = styled.div`
     margin: 1rem;
     width: 250px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: red;
 `;
 
-export default function NutritionApp({foodNutrients = [] }) {
+export default function FoodCard({foodNutrients = [] }) {
     return (
         <FoodCardWrapper className="food-card">
             <ul>
