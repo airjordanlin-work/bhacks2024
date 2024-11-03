@@ -1,10 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
 import evo1 from "@/app/public/evo1.png";
 import evo2 from "@/app/public/evo2.png";
 import evo3 from "@/app/public/evo3.png";
 import { Typography, Button, IconButton, Paper } from "@mui/material";
-import * as React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -14,7 +14,7 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
-import {usePoints} from "@/app/context/PointsContext";
+import { usePoints } from "@/app/context/PointsContext";
 import SideNav from "@/components/sideNav";
 
 const DateContext = React.createContext();
@@ -35,7 +35,8 @@ const StyledWrapper = styled(Paper)`
     padding: 20px;
     gap: 20px;
     background-color: #1a1a1a;
-    border-radius: 10px;
+    border-radius: 25px;
+    border: 1px solid white;
     width: 100%;
     margin-top: 2%;
 
@@ -195,12 +196,26 @@ const StyledSideNav = styled(SideNav)`
 `;
 
 export default function BuddyTerminal() {
-    const [evolutionStage, setEvolutionStage] = React.useState(1);
-    const [selectedDate, setSelectedDate] = React.useState(dayjs().format("MMMM D, YYYY"));
-    const [mood, setMood] = React.useState(null);
+    const [evolutionStage, setEvolutionStage] = useState(1);
+    const [selectedDate, setSelectedDate] = useState(dayjs().format("MMMM D, YYYY"));
+    const [moods, setMoods] = useState({});
+    const { points } = usePoints(); // Access points from context
 
     const evolutionImages = [evo1, evo2, evo3];
     const currentImage = evolutionImages[evolutionStage - 1];
+
+    // Load moods from local storage on mount
+    useEffect(() => {
+        const savedMoods = localStorage.getItem("moods");
+        if (savedMoods) {
+            setMoods(JSON.parse(savedMoods));
+        }
+    }, []);
+
+    // Save moods to local storage whenever moods change
+    useEffect(() => {
+        localStorage.setItem("moods", JSON.stringify(moods));
+    }, [moods]);
 
     const handleEvolveClick = () => {
         setEvolutionStage((prevStage) => Math.min(prevStage + 1, evolutionImages.length));
@@ -215,10 +230,13 @@ export default function BuddyTerminal() {
     };
 
     const handleMoodClick = (newMood) => {
-        setMood(newMood);
+        setMoods((prevMoods) => ({
+            ...prevMoods,
+            [selectedDate]: newMood
+        }));
     };
 
-    const { points } = usePoints(); // Access points from context
+    const currentMood = moods[selectedDate] || "No mood selected";
 
     return (
         <DateContext.Provider value={selectedDate}>
@@ -227,8 +245,6 @@ export default function BuddyTerminal() {
                     <Typography variant="h6" style={{ color: 'white', fontSize: '0.975rem' }}>
                         Task Points:
                     </Typography>
-                    <br/>
-
                     <PointsBubble>{points}</PointsBubble>
 
                     <StyledButton variant="contained" size="large" onClick={handleEvolveClick}>
@@ -242,23 +258,17 @@ export default function BuddyTerminal() {
                     >
                         Revert Crash
                     </StyledButton>
-
-                    <StyledSideNav/>
+                    <StyledSideNav />
                 </StyledRight>
                 <StyledDiv>
                     <ImageTextContainer>
-                        <Image
-                            src={currentImage}
-                            alt="Asteroid mascot"
-                            width={300}
-                            height={300}
-                        />
+                        <Image src={currentImage} alt="Asteroid mascot" width={300} height={300} />
                         <Bubble elevation={3}>
                             <Typography variant="h5">Hello There Traveler... Are you here for a Crash Report?</Typography>
                             <DateText variant="caption">Selected Date - {selectedDate}</DateText>
-                            <br/>
+                            <br />
                             <DateText variant="caption">
-                                Today's Mood -  {mood ? mood : "No mood selected"}
+                                Today's Mood - {currentMood}
                             </DateText>
                         </Bubble>
                     </ImageTextContainer>

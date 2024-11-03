@@ -96,7 +96,7 @@ const TaskTimeline = ({ onTaskComplete }) => {
                 {tasks.map((task) => (
                     <TimelineItem key={task.id}>
                         <TimelineOppositeContent>
-                            <Typography variant="body2" color="textSecondary">
+                            <Typography variant="body2" color="grey">
                                 {task.date}
                             </Typography>
                         </TimelineOppositeContent>

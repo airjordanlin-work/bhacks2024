@@ -14,7 +14,9 @@ const StyledCenter = styled.div`
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  border: 2px solid white;
+    border-radius: 25px;
+    border: 1px solid white;
+    background-color: #1a1a1a;
   padding: 10px;
   align-items: flex-start;
   gap: 20px;
@@ -69,9 +71,12 @@ export default function Home() {
                         height: "150vh",
                         bgcolor: "black",
                         backgroundRepeat: "no-repeat",
-                        backgroundImage: `url(/spaceGif.gif)`,
+                        backgroundImage: `@/public/space.jpg`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
+                        margin: "5% auto",
+                        borderRadius: "45px",
+                        border: "solid white 5px"
                     }}
                 >
                     <Header />
