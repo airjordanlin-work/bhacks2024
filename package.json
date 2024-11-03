@@ -26,7 +26,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.27.0",
     "styled-components": "^6.1.13",
-    "swr": "^2.2.5"
+    "swr": "^2.2.5",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
