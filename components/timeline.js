@@ -2,8 +2,32 @@ import React, { useState } from 'react';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent } from '@mui/lab';
 import { Button, Typography, TextField, Box } from '@mui/material';
 import { usePoints } from '@/app/context/PointsContext';
+import styled from "styled-components";
 
-const TaskTimeline = () => {
+const StyledTextField = styled(TextField)`
+    && {
+        margin-bottom: 15px;
+        width: 100%;
+        background-color: #333;
+        border-radius: 8px;
+    }
+
+    & .MuiOutlinedInput-root {
+        color: white;
+
+        & fieldset {
+            border-color: #555;
+        }
+        &:hover fieldset {
+            border-color: #888;
+        }
+        &.Mui-focused fieldset {
+            border-color: #ffa83b;
+        }
+    }
+`;
+
+const TaskTimeline = ({ onTaskComplete }) => {
     const { addPoints } = usePoints();
     const [tasks, setTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
@@ -11,8 +35,10 @@ const TaskTimeline = () => {
 
     const handleCompleteTask = (taskId) => {
         if (!completedTasks.includes(taskId)) {
-            setCompletedTasks([...completedTasks, taskId]);
+            const updatedCompletedTasks = [...completedTasks, taskId];
+            setCompletedTasks(updatedCompletedTasks);
             addPoints(1); // Each task gives 1 point
+            onTaskComplete(updatedCompletedTasks); // Notify parent component
         }
     };
 
@@ -41,7 +67,7 @@ const TaskTimeline = () => {
     return (
         <div>
             <Box component="form" onSubmit={handleAddTask} sx={{ mb: 4 }}>
-                <TextField
+                <StyledTextField
                     label="Task Name"
                     name="title"
                     value={newTask.title}
@@ -51,7 +77,7 @@ const TaskTimeline = () => {
                     required
                     sx={{ backgroundColor: "white" }}
                 />
-                <TextField
+                <StyledTextField
                     label="Description"
                     name="description"
                     value={newTask.description}
@@ -93,4 +119,3 @@ const TaskTimeline = () => {
 };
 
 export default TaskTimeline;
-

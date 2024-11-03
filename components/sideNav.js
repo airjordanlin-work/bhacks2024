@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Menu, { menuClasses } from '@mui/joy/Menu';
+import Menu from '@mui/joy/Menu';
 import MenuItem from '@mui/joy/MenuItem';
 import IconButton from '@mui/joy/IconButton';
 import List from '@mui/joy/List';
@@ -10,20 +10,6 @@ import Apps from '@mui/icons-material/Apps';
 import Dropdown from '@mui/joy/Dropdown';
 import MenuButton from '@mui/joy/MenuButton';
 import Link from 'next/link';
-
-const modifiers = [
-    {
-        name: 'offset',
-        options: {
-            offset: ({ placement }) => {
-                if (placement.includes('end')) {
-                    return [8, 20];
-                }
-                return [-8, 20];
-            },
-        },
-    },
-];
 
 function NavMenuButton({
                            children,
@@ -53,6 +39,14 @@ function NavMenuButton({
                     onOpen?.();
                 }
             }}
+            modifiers={[
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 12], // Adjust the second value to control vertical distance
+                    },
+                },
+            ]}
         >
             <MenuButton
                 {...props}
@@ -89,19 +83,20 @@ function NavMenuButton({
                 onMouseLeave: () => {
                     onLeaveMenu(() => isOnButton.current);
                 },
-                modifiers,
                 slotProps: {
                     listbox: {
                         id: `nav-example-menu-${label}`,
                         'aria-label': label,
                     },
                 },
-                placement: 'right-start',
+                placement: 'bottom-end', // Drop down slightly to the right to avoid text overlap
                 sx: {
-                    width: 288,
-                    [`& .${menuClasses.listbox}`]: {
-                        '--List-padding': 'var(--ListDivider-gap)',
-                    },
+                    width: 200,
+                    borderRadius: '8px', // Rounded corners
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)', // Soft shadow
+                    bgcolor: 'background.paper',
+                    p: 0,
+                    mt: 1, // Margin from button
                 },
             })}
         </Dropdown>
@@ -138,7 +133,22 @@ export default function SideNav() {
     };
 
     return (
-        <Sheet sx={{ width: "50%", border: "2px solid white", borderRadius: 'sm', py: 20, bgcolor: "black", color: "white"}}>
+        <Sheet
+            sx={{
+                width: "30%",
+                height: "10px",
+                padding: 2,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                bgcolor: 'orange', // Light transparent background for visibility
+                borderRadius: '8px',
+                transition: 'background-color 0.3s ease',
+                '&:hover': {
+                    bgcolor: 'rgba(255, 255, 255, 0.2)', // Slightly darker on hover
+                },
+            }}
+        >
             <List>
                 <ListItem>
                     <NavMenuButton
@@ -148,25 +158,45 @@ export default function SideNav() {
                         onLeaveMenu={createHandleLeaveMenu(0)}
                         menu={
                             <Menu onClose={() => setMenuIndex(null)}>
-                                <MenuItem {...itemProps}>
-                                    <Link href="/foodcard" passHref>Food Card</Link>
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/foodcard"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' }, // Subtle hover effect
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Food Card
                                 </MenuItem>
-                                <MenuItem {...itemProps}>
-                                    <Link href="/home" passHref>Productivity Tracker</Link>
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/home"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Productivity Tracker
                                 </MenuItem>
-                                <MenuItem {...itemProps}>
-                                    <Link href="/journal" passHref>Journal Page</Link>
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/journal"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Journal Page
                                 </MenuItem>
-                                {/*<MenuItem {...itemProps}>*/}
-                                {/*    <Link href="/NutritionCalculator" passHref>Nutrition Calculator</Link>*/}
-                                {/*</MenuItem>*/}
                             </Menu>
                         }
                     >
                         <Apps />
                     </NavMenuButton>
                 </ListItem>
-                <ListItem></ListItem>
             </List>
         </Sheet>
     );

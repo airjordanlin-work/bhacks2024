@@ -14,6 +14,8 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import {usePoints} from "@/app/context/PointsContext";
+import SideNav from "@/components/sideNav";
 
 const DateContext = React.createContext();
 
@@ -47,6 +49,7 @@ const StyledWrapper = styled(Paper)`
 const StyledRight = styled(Paper)`
     padding: 20px;
     width: 15%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,6 +125,7 @@ const StyledButton = styled(Button)`
     margin-top: 20px;
     background-color: #1976d2;
     color: white;
+    margin-bottom: 20px;
 
     &:hover {
         background-color: #1565c0;
@@ -156,6 +160,39 @@ const StyledIconButton = styled(IconButton)`
     }
 `;
 
+const PointsBubble = styled.div`
+    background-color: #5123ff;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+`;
+const StyledSideNav = styled(SideNav)`
+    width: 80%; // Adjust this to make it smaller
+    height: 10px; // Customize the height as necessary
+    padding: 5px; // Reduce padding for a more compact look
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #2c2c2c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 10px;
+    }
+`;
 
 export default function BuddyTerminal() {
     const [evolutionStage, setEvolutionStage] = React.useState(1);
@@ -181,11 +218,19 @@ export default function BuddyTerminal() {
         setMood(newMood);
     };
 
+    const { points } = usePoints(); // Access points from context
+
     return (
         <DateContext.Provider value={selectedDate}>
             <StyledWrapper elevation={3}>
                 <StyledRight elevation={3}>
-                    <Typography variant="h6" style={{ color: 'white' }}>Task Points:</Typography>
+                    <Typography variant="h6" style={{ color: 'white', fontSize: '0.975rem' }}>
+                        Task Points:
+                    </Typography>
+                    <br/>
+
+                    <PointsBubble>{points}</PointsBubble>
+
                     <StyledButton variant="contained" size="large" onClick={handleEvolveClick}>
                         Evolve Crash
                     </StyledButton>
@@ -197,6 +242,8 @@ export default function BuddyTerminal() {
                     >
                         Revert Crash
                     </StyledButton>
+
+                    <StyledSideNav/>
                 </StyledRight>
                 <StyledDiv>
                     <ImageTextContainer>
