@@ -172,13 +172,13 @@ export default function SideNav() {
                                 <MenuItem
                                     {...itemProps}
                                     component={Link}
-                                    href="/home"
+                                    href="/webcam"
                                     sx={{
                                         '&:hover': { bgcolor: 'primary.light' },
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Productivity Tracker
+                                    Productivity Data
                                 </MenuItem>
                                 <MenuItem
                                     {...itemProps}
@@ -189,18 +189,43 @@ export default function SideNav() {
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Journal Page
+                                    Journal Entries
                                 </MenuItem>
                                 <MenuItem
                                     {...itemProps}
                                     component={Link}
-                                    href="/gallery-of-aliens"
+                                    href="/gallery"
                                     sx={{
                                         '&:hover': { bgcolor: 'primary.light' },
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Gallery of aliens
+                                    Gallery of Aliens
+                                </MenuItem>
+
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/foodcard"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Nutrition Tracker
+                                </MenuItem>
+
+
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/meditate"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Meditation
                                 </MenuItem>
                             </Menu>
                         }

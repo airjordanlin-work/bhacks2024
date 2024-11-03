@@ -10,8 +10,8 @@ import * as THREE from 'three';
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // Import images for aliens
-import zorgonImage from "@/app/public/zorgon.jpg";
-import xylonImage from "@/app/public/xylon.jpg";
+import zorgonImage from "@/app/public/zorgon.png";
+import xylonImage from "@/app/public/xylo.webp";
 
 // Alien data with images included
 const aliens = [
@@ -38,12 +38,7 @@ const AlienGrid = styled(Grid)`
     gap: 1rem;
 `;
 
-const BackButton = styled(IconButton)`
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    color: #e94560;
-`;
+
 
 const ModalContent = styled.div`
     position: absolute;
@@ -119,13 +114,6 @@ export default function AlienGallery() {
     const [selectedAlien, setSelectedAlien] = useState(null);
     const router = useRouter();
 
-    const handleBack = () => {
-        if (window.history.length > 1) {
-            router.back();
-        } else {
-            router.push("/"); // Navigate to the homepage or another specific page if there's no back history
-        }
-    };
 
     const handleOpen = (alien) => {
         setSelectedAlien(alien);
@@ -139,9 +127,6 @@ export default function AlienGallery() {
 
     return (
         <GalleryWrapper>
-            <BackButton onClick={handleBack}>
-                <ArrowBackIcon />
-            </BackButton>
             <Typography variant="h2" style={{ color: "#00e676", textShadow: "0px 0px 8px #00e676" }}>
                 Alien Gallery
             </Typography>
