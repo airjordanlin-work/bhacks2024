@@ -157,6 +157,9 @@ export default function SideNav() {
                                 <MenuItem {...itemProps}>
                                     <Link href="/journal" passHref>Journal Page</Link>
                                 </MenuItem>
+                                <MenuItem {...itemProps}>
+                                    <Link href="/gallery-of-aliens" passHref>Alien Gallery</Link>
+                                </MenuItem>
                                 {/*<MenuItem {...itemProps}>*/}
                                 {/*    <Link href="/NutritionCalculator" passHref>Nutrition Calculator</Link>*/}
                                 {/*</MenuItem>*/}

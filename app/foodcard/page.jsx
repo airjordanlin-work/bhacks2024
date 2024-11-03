@@ -4,7 +4,8 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import NutritionApp from '/app/components/FoodCard';
-import { Typography, Button, TextField } from "@mui/material";
+import { Typography, Button, TextField, IconButton } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const NutritionAppWrapper = styled.div`
     display: flex;
@@ -15,6 +16,14 @@ const NutritionAppWrapper = styled.div`
     background-color: inherit;
     color: #e0e0e0;
     text-align: center;
+    position: relative;
+`;
+
+const BackButton = styled(IconButton)`
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #00e676;
 `;
 
 const SpaceHeader = styled(Typography)`
@@ -65,6 +74,12 @@ export default function Food({ initialNutritionData = [] }) {
 
     return (
         <NutritionAppWrapper>
+            <Link href="/">
+                <BackButton>
+                    <ArrowBackIcon />
+                </BackButton>
+            </Link>
+
             <SpaceHeader variant="h1">Find Nutrition Information for Any Food!</SpaceHeader>
             <SpaceDescription>Enter a food name below to get nutrition information</SpaceDescription>
             <SpaceInput
@@ -81,7 +96,6 @@ export default function Food({ initialNutritionData = [] }) {
             <Link href="/dailylog">
                 <SpaceButton variant="outlined">View Daily Log</SpaceButton>
             </Link>
-
         </NutritionAppWrapper>
     );
 }
