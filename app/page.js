@@ -9,6 +9,7 @@ import SideNav from "@/components/sideNav";
 import CustomTimeline from "@/components/timeline";
 
 import Header from "@/components/Header";
+import BuddyTerminal from "@/components/Buddy"
 
 import styled from "styled-components";
 
@@ -40,6 +41,7 @@ export default function Home() {
               }}
               >
                   <Header/>
+                  <BuddyTerminal/>
                   <StyledCenter>
 
                       <SideNav/>
