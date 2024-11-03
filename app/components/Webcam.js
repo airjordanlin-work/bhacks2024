@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import TimeGraph from '@/app/webcam/TimeGraph';
+import TimeGraph from '@/app/(with-nav)/webcam/TimeGraph';
 
 const WebcamWithBoundingBoxes = () => {
     const videoRef = useRef(null);

@@ -15,7 +15,7 @@ import SentimentNeutralIcon from '@mui/icons-material/SentimentNeutral';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import { usePoints } from "@/app/context/PointsContext";
-import SideNav from "@/components/sideNav";
+import SideNav from "@/app/components/sideNav";
 
 const DateContext = React.createContext();
 

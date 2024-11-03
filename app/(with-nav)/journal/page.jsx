@@ -1,4 +1,4 @@
-import DisplayAllPosts from "@/components/display-all-posts";
+import DisplayAllPosts from "@/app/components/display-all-posts";
 import getAllPosts from "@/lib/getAllPosts";
 
 export default async function Home() {

@@ -167,18 +167,18 @@ export default function SideNav() {
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Food Card
+                                    Nutrition Log
                                 </MenuItem>
                                 <MenuItem
                                     {...itemProps}
                                     component={Link}
-                                    href="/home"
+                                    href="/webcam"
                                     sx={{
                                         '&:hover': { bgcolor: 'primary.light' },
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Productivity Tracker
+                                    Productivity Data
                                 </MenuItem>
                                 <MenuItem
                                     {...itemProps}
@@ -189,7 +189,29 @@ export default function SideNav() {
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Journal Page
+                                    Journal Entries
+                                </MenuItem>
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/gallery"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Alien Gallery
+                                </MenuItem>
+                                <MenuItem
+                                    {...itemProps}
+                                    component={Link}
+                                    href="/meditation"
+                                    sx={{
+                                        '&:hover': { bgcolor: 'primary.light' },
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Meditate
                                 </MenuItem>
                             </Menu>
                         }

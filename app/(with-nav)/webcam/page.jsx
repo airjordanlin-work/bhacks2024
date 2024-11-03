@@ -1,5 +1,5 @@
 "use client";
-import WebcamWithBoundingBox from "@/components/Webcam";
+import WebcamWithBoundingBox from "@/app/components/Webcam";
 import { styled } from "styled-components";
 
 const BigDiv = styled.div`

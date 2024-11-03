@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { Container } from "@mui/material";
 import explainer from "@/app/public/explain.png";
-import Header from "@/components/Header";
-import BuddyTerminal from "@/components/Buddy";
-import TaskTimeline from "@/components/timeline";
+import Header from "@/app/components/Header";
+import BuddyTerminal from "@/app/components/Buddy";
+import TaskTimeline from "@/app/components/timeline";
 import styled from "styled-components";
 import { PointsProvider } from './context/PointsContext';
 import * as React from "react";
@@ -21,7 +21,6 @@ const StyledCenter = styled.div`
   align-items: flex-start;
   gap: 20px;
 `;
-
 const ChatBubbleContainer = styled.div`
     display: flex;
     flex-direction: column;
