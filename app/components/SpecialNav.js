@@ -7,16 +7,16 @@ import Link from "next/link";
 
 export default function SpecialNav() {
     return (
-        <AppBar position="static" sx={{ bgcolor: "ffa83b" }}>
+        <AppBar position="static" sx={{ bgcolor: "#ff7926" }}>
             <Toolbar>
                 <IconButton edge="start" color="inherit" aria-label="home" component={Link} href="/">
                     <HomeIcon />
                 </IconButton>
                 <Typography variant="h6" sx={{ flexGrow: 1, ml: 2,}}>
-                    Plan It
+                    Plan-It
                 </Typography>
                 <Button color="inherit" component={Link} href="/webcam">
-                    Productivity Data
+                    Productivity
                 </Button>
                 <Button color="inherit" component={Link} href="/gallery">
                     Gallery
